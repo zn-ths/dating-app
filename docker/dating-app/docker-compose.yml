@@ -1,0 +1,15 @@
+# base template for mysql docker image
+version: "3"
+
+services:
+  db:
+    image: mysql:latest
+    container_name: "dating-app"
+    # 3306 is default for mysql
+    ports:
+      - "3306:3306"
+    # mysql warning messages setting
+    cap_add:
+      - "SYS_NICE"
+    environment:
+      MYSQL_ROOT_PASSWORD: "secret"
